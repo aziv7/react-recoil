@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { RecoilRoot } from 'recoil';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Link,
+  Route,
+  Navigate,
+} from 'react-router-dom';
+import UserForm from './components/UserForm';
+import UsersList from './components/UsersList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RecoilRoot>
+      <Router>
+        <Link to='/users'>Users</Link>
+
+        <Link to='/user-form'>Form</Link>
+        <Routes>
+          <Route path='/' element={<Navigate to='/users' />} />{' '}
+          <Route exact path='/user-form' element={<UserForm />}></Route>
+          <Route exact path='/users' element={<UsersList />}></Route>
+        </Routes>
+      </Router>
+    </RecoilRoot>
   );
 }
 
