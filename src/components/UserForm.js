@@ -10,11 +10,11 @@ const UserForm = () => {
   function handleSubmit(e) {
     e.preventDefault();
     setUsers([
-      ...users,
       {
-        id: users.length,
+        id: new Date().getTime(),
         name,
       },
+      ...users,
     ]);
 
     setName('');
