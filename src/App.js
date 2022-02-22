@@ -13,9 +13,7 @@ function App() {
   return (
     <RecoilRoot>
       <Router>
-        <Link to='/users'>Users</Link>
-
-        <Link to='/user-form'>Form</Link>
+        <Link to='/users'>Users</Link> <Link to='/user-form'>Form</Link>
         <Routes>
           <Route path='/' element={<Navigate to='/users' />} />{' '}
           <Route exact path='/user-form' element={<UserForm />}></Route>
